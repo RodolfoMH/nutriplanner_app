@@ -36,7 +36,7 @@ export default function LoginScreen({ navigation }) {
       navigation.replace('Home');
     } catch (error) {
       console.log(error.message)
-      alert('Credenciales incorrectas');
+      alert(error.message);
     }
   };
 
