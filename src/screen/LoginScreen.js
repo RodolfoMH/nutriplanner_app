@@ -17,6 +17,7 @@ export default function LoginScreen({ navigation }) {
   const [openConfigDialog, setOpenConfigDialog] = useState(false);
   const [server, setServer] = useState('morelhost.ddns.net');
   const [port, setPort] = useState('8080');
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(()=>{
@@ -30,14 +31,19 @@ export default function LoginScreen({ navigation }) {
 
   const handleLogin = async () => {
     // Validar credenciales dummy
+    setLoading(true);
     try {
+      
       const result = await login(username,password);
+      console.log('result ',result)
       await session.save(result);
       navigation.replace('Home');
     } catch (error) {
       console.log(error.message)
       alert(error.message);
     }
+
+    setLoading(false);
   };
 
 
@@ -94,7 +100,17 @@ export default function LoginScreen({ navigation }) {
         value={password}
         onChangeText={setPassword}
       />
-      <Pressable onPress={handleLogin} style={{backgroundColor:themeConfig.current.color.primary, borderRadius:30, padding:10, marginTop:20}}>
+
+
+
+      <View style={{display:'flex',flexDirection:'row', justifyContent:'center'}}>
+        <Text>No tienes una cuenta? </Text>
+        <Pressable onPress={()=>navigation.navigate('Registro')}>
+          <Text style={{color:themeConfig.current.color.primary}}>Registrarse.</Text>
+        </Pressable>
+      </View>
+
+      <Pressable disabled={loading} onPress={handleLogin} style={{backgroundColor:loading? 'grey': themeConfig.current.color.primary, borderRadius:30, padding:10, marginTop:20}}>
         <Text style={{color:'white', textAlign:'center', fontSize:18}}>Iniciar sesión</Text>
       </Pressable>
 

@@ -10,15 +10,8 @@ import ShoppingListsScreen from './src/screen/ShoppingListsScreen';
 import NewShoppingListScreen from './src/screen/NewShoppingListScreen';
 import ShoppingListDetailScreen from './src/screen/ShoppingListDetailScreen';
 import DetalleCompraScreen from './src/screen/DetalleCompraScreen';
+import RegistroScreen from './src/screen/RegistroScreen';
 
-
-// import LoginScreen from './screens/LoginScreen';
-// import ShoppingListsScreen from './screens/ShoppingListsScreen';
-// import NewShoppingListScreen from './screens/NewShoppingListScreen';
-// import ShoppingListDetailScreen from './screens/ShoppingListDetailScreen';
-// import WeeklyMenuScreen from './screens/WeeklyMenuScreen'; // Importar la nueva pantalla
-// import BottomTap from './navigation/BottonTab';
-// import DetalleCompraScreen from './screens/DetalleCompraScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +28,7 @@ export default function App() {
         <Stack.Screen name="ShoppingListDetail" component={ShoppingListDetailScreen} options={{ headerTitleAlign:'center',title: 'Lista de Compras', headerShadowVisible:false }} />
         {/* <Stack.Screen name="WeeklyMenu" component={WeeklyMenuScreen} options={{ title: 'Menú de la Semana' }} /> */}
         <Stack.Screen name="DetalleCompra" component={DetalleCompraScreen} options={{ headerTitleAlign:'center',title: 'Detalle de Compras', headerShadowVisible:false }} />
+        <Stack.Screen name="Registro" component={RegistroScreen} options={{ title: 'Registro' }} />
       </Stack.Navigator>
     </NavigationContainer>
     </View>

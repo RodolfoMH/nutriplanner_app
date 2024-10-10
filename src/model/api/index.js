@@ -25,6 +25,7 @@ export const getUriBase = async () =>{
 export const login = async (email, password) => {
 
     const uriBase = await getUriBase();
+
     try {
         const response = await fetch(`${uriBase}/login`, {
             method: 'POST',
@@ -154,3 +155,26 @@ export const getListasCompraUsuario = async (usuarioId) => {
         console.error('Error en getListasCompraUsuario:', error);
     }
 }
+
+
+export const saveUser = async (body) => {
+
+    const uriBase = await getUriBase();
+    try {
+        const response = await fetch(`${uriBase}/usuarios`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
+
+        if (response.ok) {
+            // Manejar éxito en el login
+            return response.json();
+        } else {
+            // Manejar error
+            return Promise.reject(response.text());
+        }
+    } catch (error) {
+        console.error('Error en el saveUser', error);
+    }
+};
