@@ -5,17 +5,17 @@
     </domain-config>
 
     <!-- Permitir tráfico claro para localhost (emulador) -->
-    <domain-config cleartextTrafficPermitted="true">
+    <!-- <domain-config cleartextTrafficPermitted="true">
         <domain>localhost</domain>
-    </domain-config>
+    </domain-config> -->
     
     <!-- Permitir tráfico claro para 10.0.2.2 (emulador de Android) -->
-    <domain-config cleartextTrafficPermitted="true">
+    <!-- <domain-config cleartextTrafficPermitted="true">
         <domain>10.0.2.2</domain>
     </domain-config>
 
     <domain-config cleartextTrafficPermitted="true">
         <domain>192.168.1.11</domain>
-    </domain-config>
+    </domain-config> -->
 
 </network-security-config>
